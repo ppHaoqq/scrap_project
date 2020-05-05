@@ -1,7 +1,5 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import requests
-from bs4 import BeautifulSoup as bs
 import pandas as pd
 
 
@@ -22,12 +20,12 @@ def main():
         df['url'] = urls
         df['price'] = prices
 
-        df.to_csv('C:/Users/g2945/PycharmProjects/scrap_project/data/lancers_data_{}.csv'.format(count), index=False)
+        df.to_csv('C:/Users/daiki/PycharmProjects/scrap_project/data/lancers_data_{}.csv'.format(count), index=False)
         count += 1
 
-    df1 = pd.read_csv('C:/Users/g2945/PycharmProjects/scrap_project/data/lancers_data_1.csv',
+    df1 = pd.read_csv('C:/Users/daiki/PycharmProjects/scrap_project/data/lancers_data_1.csv',
                       index_col=0)
-    df2 = pd.read_csv('C:/Users/g2945/PycharmProjects/scrap_project/data/lancers_data_2.csv',
+    df2 = pd.read_csv('C:/Users/daiki/PycharmProjects/scrap_project/data/lancers_data_2.csv',
                       index_col=0)
     print(df1)
     print(df2)
@@ -36,7 +34,7 @@ def main():
 def driver_get(url):
     options = Options()
     options.add_argument('--headless')
-    driver = webdriver.Chrome('C:/Users/g2945/chromedriver/chromedriver', options=options)
+    driver = webdriver.Chrome('C:/chromedriver_win32/chromedriver', options=options)
     driver.get(url)
     return driver
 
