@@ -3,11 +3,12 @@ from selenium.webdriver.chrome.options import Options
 import pandas as pd
 import os
 
-
+#webdriverの位置を都度変えるか…
 def driver_get(url):
     options = Options()
-    options.add_argument('--headless')
+    #options.add_argument('--headless')
     driver = webdriver.Chrome('C:/chromedriver_win32/chromedriver', options=options)
+    driver.implicitly_wait(10)
     driver.get(url)
     return driver
 
