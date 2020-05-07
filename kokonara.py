@@ -58,5 +58,6 @@ def kokonara_search():
     driver.close()
     driver.quit()
 
+
 if __name__ == '__kokonara_search__':
     kokonara_search()

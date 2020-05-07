@@ -20,8 +20,10 @@ def lancers_search():
     #googleログイン
     g_login = driver.find_element_by_xpath('/html/body/div[3]/div[2]/div/section/div/a[1]')
     g_login.click()
-    g_login3 = driver.find_element_by_xpath('//*[@id="identifierId"]')
+
+    g_login3 = driver.find_element_by_css_selector('#identifierId')
     g_login3.send_keys(email)
+
     g_login4 = driver.find_element_by_id('identifierNext')
     g_login4.click()
     g_login5 = driver.find_element_by_xpath('//*[@id="password"]/div[1]/div/div[1]/input')

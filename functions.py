@@ -17,7 +17,8 @@ def driver_get(url):
 
 def save_data(titles, urls, prices, name, kw):
     df = pd.DataFrame()
-    df['title'] = titles
+    title = name+':'+kw
+    df[title] = titles
     df['url'] = urls
     df['price'] = prices
 
