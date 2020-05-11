@@ -59,7 +59,10 @@ def lancers_search():
             titles.append(title.get_text(strip=True))
 
             url = title.get('href')
-            urls.append(url)
+            if 'https://' in url:
+                urls.append(url)
+            else:
+                urls.append('https://www.lancers.jp/{}'.format(url))
 
             price = result.find('span', class_='c-media__job-price')
             prices.append(price.get_text(strip=True))
