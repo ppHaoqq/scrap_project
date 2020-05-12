@@ -2,6 +2,7 @@ from functions import driver_get
 from functions import save_data
 from functions import print_data
 from bs4 import BeautifulSoup as bs
+import time
 
 
 def kokonara_search():
@@ -15,20 +16,25 @@ def kokonara_search():
     #募集中のみ
     btn2 = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div/div[2]/div/label')
     btn2.click()
+    time.sleep(1)
 
     #検索
     for kw in kws:
         search = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/input')
         search.send_keys(kw)
+        time.sleep(1)
 
         btn = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/button')
         btn.click()
+        time.sleep(1)
 
         #募集中のみ
         btn2 = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[2]/div[1]/div[2]/div[2]/div[4]/div[1]/div/div[2]/div/label')
         btn2.click()
+        time.sleep(1)
 
         search.clear()
+        time.sleep(1)
 
         # ｂｓに渡して解析
         #始めに検索結果をすべて取得
