@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.options import Options
 import pandas as pd
 from pathlib import PurePath, Path
 import datetime
+import sys
 
 
 #webdriverの位置を都度変える
@@ -31,7 +32,8 @@ def save_data(titles, urls, prices, name, kw):
     df['url'] = urls
     df['price'] = prices
 
-    target_path = Path(__file__).parent
+    _target_path = Path(sys.argv[0]).parent
+    target_path = _target_path.resolve()
     data_dir = PurePath.joinpath(target_path, 'data')
     if data_dir.exists():
         df.to_csv(PurePath.joinpath(data_dir, '{}_{}.csv'.format(name, kw)), index=False)
@@ -41,7 +43,8 @@ def save_data(titles, urls, prices, name, kw):
 
 
 def print_data(name, kw):
-    target_path = Path(__file__).parent
+    _target_path = Path(sys.argv[0]).parent
+    target_path = _target_path.resolve()
     data_dir = PurePath.joinpath(target_path, 'data')
     df = pd.read_csv(PurePath.joinpath(data_dir, '{}_{}.csv'.format(name, kw)))
     print(df)
