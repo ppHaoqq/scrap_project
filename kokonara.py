@@ -1,6 +1,4 @@
-from functions import driver_get
-from functions import save_data
-from functions import print_data
+from functions import driver_get, save_data, print_data
 from bs4 import BeautifulSoup as bs
 import time
 
@@ -21,6 +19,7 @@ def kokonara_search():
     #検索
     for kw in kws:
         search = driver.find_element_by_xpath('//*[@id="__layout"]/div/div[2]/div[1]/div[2]/div[2]/div[3]/div[1]/div[1]/input')
+        time.sleep(1)
         search.send_keys(kw)
         time.sleep(1)
 
